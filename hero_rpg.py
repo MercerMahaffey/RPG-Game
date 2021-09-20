@@ -315,7 +315,6 @@ def main():
     #        name, health, damage, evade chance, recup chance, resurrect ability, bounty, armor, critical
     
         
-
     goblin = Goblin("Goblin", 6, 6, 2, 0, 0, 0, 5, 0, 0)
     hero = Hero("Hero", 10, 10, 5, 1, 0, 0, 20, 0, 2)
     zombie = Zombie("Zombie", 4, 4, 1, 0, 3, 0, 5, 0, 0)
