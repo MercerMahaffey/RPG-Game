@@ -204,7 +204,7 @@ def main():
             self.bounty = bounty
             self.armor = armor
             self.critical = critical
-    
+
     class Zombie(Character):
         def __init__(self, name, health, health2, power, evade, recup, resur, bounty, armor, critical):
             self.name = name
@@ -256,7 +256,7 @@ def main():
             self.bounty = bounty
             self.armor = armor
             self.critical = critical
-    
+
     class Wizard(Character):
         def __init__(self, name, health, health2, power, evade, recup, resur, bounty, armor, critical):
             self.name = name
@@ -312,9 +312,7 @@ def main():
     # def character_choose():
     #     character_choice = input("Welcome! \n ")
 
-    #        name, health, damage, evade chance, recup chance, resurrect ability, bounty, armor, critical
-    
-        
+    # name, health, damage, evade chance, recup chance, resurrect ability, bounty, armor, critical
     goblin = Goblin("Goblin", 6, 6, 2, 0, 0, 0, 5, 0, 0)
     hero = Hero("Hero", 10, 10, 5, 1, 0, 0, 20, 0, 2)
     zombie = Zombie("Zombie", 4, 4, 1, 0, 3, 0, 5, 0, 0)
@@ -338,10 +336,10 @@ def main():
     character_choice = playable_characters[character_num - 1]
     character_choice.name = "You"
     character_choice.bounty = 0
-    
+
     enemies = [goblin, treeman, shadow, orc, zombie, bandit, highwayman]
     del enemies[character_num-1]
-    
+
     size = 11
     half = 5
     map = []
@@ -352,7 +350,7 @@ def main():
             map.append([])
             for z in range(0,size):
                 map[y].append(" ")
-    
+
     def print_board(map, coordinate):
         co_x = coordinate[0]
         co_y = coordinate[1]
@@ -364,7 +362,7 @@ def main():
                 else:
                     print(map[y + co_y][x + co_x], end = " ")
         print(" ")
-    
+
     def generate_map_horizontal(map, vert):
         temp_list = []
         roll1 = random.randrange(22)
@@ -384,7 +382,7 @@ def main():
                 else:
                     temp_list += " "
             map.insert(len(map), temp_list)
-            
+
     def generate_map_vertical(map, hor):
         roll1 = random.randrange(22)
         roll2 = random.randrange(22)
@@ -407,7 +405,7 @@ def main():
                     item.append(" ")
                 count +=1
     space_list = ["$", "$", "!", "?", "?", "?", "?", "?", "?"]
-        
+
     def check_position():
         co_x = coordinate[0] + half
         co_y = coordinate[1] + half
@@ -440,12 +438,12 @@ def main():
             opponent = random.choice(enemies)
             map[co_y][co_x] = opponent.name[0]
             character_choice.fighting(opponent)
-        
+
     def defeated_enemy():
         co_x = coordinate[0] + half
         co_y = coordinate[1] + half
         map[co_y][co_x] = " "
-    
+
     def travelling():
         go = "yes"
         create_map()
@@ -480,34 +478,8 @@ def main():
             else:
                 print("Invalid input. Use WASD keys to move.")
     
-
-
-
-    
-
     while character_choice.alive():
-        # exiting = "no"
-        # opponent = random.choice(enemies)
         character_choice.print_status()
         travelling()
-        # print(f"You have {character_choice.bounty} coins.")
-        # print("What do you want to do?")
-        # print("1. fight an enemy")
-        # print("2. go to store")
-        # print("q. quit game.")
-        # print("> ", end=' ')
-        # raw_input = input()
-        # if raw_input == "1":
-        #     character_choice.fighting(opponent)
-        #     exiting = "yes"
-        # elif raw_input == "2":
-        #     character_choice.store()
-        #     exiting = "yes"
-        # elif raw_input == "q":
-        #     exit()
-        # elif exiting == "no":
-        #     print("Invalid input {}".format(raw_input))
-
-
 
 main()
